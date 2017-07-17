@@ -1,0 +1,24 @@
+title = "Laurent Pireyn"
+baseURL = "https://lpireyn.github.io/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+theme = "minimo"
+
+[author]
+  name = "Laurent Pireyn"
+
+[author.social]
+  facebook = "laurent.pireyn"
+  github = "lpireyn"
+  instagram = "lpireyn"
+  twitter = "lpireyn"
+
+[params]
+  description = "Laurent Pireyn's website"
+  dateFormat = "2006, Jan 2"
+  copyrightOwner = "Laurent Pireyn"
+  copyrightStartYear = "2017"
+  hideEntryNavigation = false
+
+[params.seo]
+  titleSeparator = "•"
