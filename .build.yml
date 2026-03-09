@@ -1,0 +1,17 @@
+# builds.sr.ht manifest
+image: alpine/edge
+oauth: pages.sr.ht/PAGES:RW
+packages:
+  - hut
+  - zola
+environment:
+  site: lpireyn.srht.site
+tasks:
+  - build: |
+      cd $site
+      zola build
+  - package: |
+      cd $site
+      tar -C public -cvz . > ../site.tar.gz
+  - publish: |
+      hut pages publish -d $site site.tar.gz
