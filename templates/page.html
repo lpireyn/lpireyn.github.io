@@ -1,0 +1,12 @@
+{# Zola template - Page #}
+
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+  <h1>{{ page.title }}</h1>
+</section>
+<section>
+  {{ page.content | safe }}
+</section>
+{% endblock content %}

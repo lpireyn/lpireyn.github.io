@@ -1,0 +1,16 @@
+{# Zola template - Tag #}
+
+{% import "macros.html" as macros %}
+
+{% extends "base.html" %}
+
+{% block content %}
+{% set tag = term %}
+<section>
+  <h1>#{{ term.name }}</h1>
+</section>
+{% for page in tag.pages %}
+{# TODO: Support pages other than blog posts #}
+{{ macros::blog_post_summary(post=page) }}
+{% endfor %}
+{% endblock content %}

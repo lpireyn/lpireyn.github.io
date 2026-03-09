@@ -1,0 +1,6 @@
+{# Zola shortcode - Margin note for Tufte CSS #}
+
+<label for="mn-{{ id }}" class="margin-toggle">&#8853;</label>
+<input type="checkbox" id="mn-{{ id }}" class="margin-toggle"/>
+{# The `body` variable is not rendered, so we explicitly do it here #}
+<span class="marginnote">{{ body | markdown(inline=true) | safe }}</span>

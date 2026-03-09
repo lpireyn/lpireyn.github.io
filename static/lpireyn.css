@@ -1,0 +1,29 @@
+/* Adjustments to Tufte CSS */
+
+html {
+  /* Original: 15px */
+  font-size: 16px;
+}
+
+code, pre > code {
+  /* Original: #fffff8 */
+  background: #e0e0d8;
+}
+
+@media (prefers-color-scheme: dark) {
+  code, pre > code {
+    /* Original: #151515 */
+    background-color: #282828;
+  }
+}
+
+/* Custom styles */
+
+a.discrete {
+  /* FIXME: The link is still underlined */
+  text-decoration: none;
+}
+
+p.meta {
+  /* TODO: Write this style */
+}

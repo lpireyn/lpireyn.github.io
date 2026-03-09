@@ -1,0 +1,15 @@
+{# Zola template - Tags #}
+
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+  <h1>Tags</h1>
+</section>
+{% for tag in terms %}
+<section>
+  <h2><a href="{{ tag.path | safe }}">#{{ tag.name }}</a></h2>
+  <p>{{ tag.page_count }} page{{ tag.page_count | pluralize }}</p>
+</section>
+{% endfor %}
+{% endblock content %}

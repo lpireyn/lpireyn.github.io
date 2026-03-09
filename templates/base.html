@@ -1,0 +1,57 @@
+{# Zola template - Base #}
+
+{% import "macros.html" as macros %}
+
+<!DOCTYPE html>
+
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="UTF-8">
+    {% set title = macros::title() %}
+    <title>LPireyn{% if title %} &ndash; {{ title }}{% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css">
+    <link rel="stylesheet" href="{{ get_url(path="/lpireyn.css") }}">
+    {% block head %}{% endblock head %}
+  </head>
+  <body>
+    <main>
+      {# NOTE: Tufte CSS recommends using an `article` element as root container #}
+      <article>
+        <header>
+          <h1><a href="{{ get_url(path="/")}}" class="discrete">LPireyn</a></h1>
+          <nav>
+            <p>
+              {% set sep = " / " %}
+              <a href="{{ get_url(path="/blog") }}">Blog</a>
+              {{ sep }}
+              <a href="{{ get_url(path="/tags") }}">Tags</a>
+              {{ sep }}
+              <a href="https://codeberg.org/lpireyn">Codeberg</a>
+              {{ sep }}
+              <a href="https://github.com/lpireyn">GitHub</a>
+              {{ sep }}
+              <a href="https://gitlab.com/lpireyn">GitLab</a>
+            </p>
+          </nav>
+        </header>
+        {# NOTE: Tufte CSS recommends using `section` elements #}
+        <section>
+          {% block content %}{% endblock content %}
+        </section>
+        <footer>
+          <p>
+            Copyright &copy; 2026 Laurent Pireyn
+            &ndash;
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+            <br>
+            Made with
+            <a href="https://www.getzola.org/">Zola</a>
+            &amp;
+            <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>
+          </p>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>

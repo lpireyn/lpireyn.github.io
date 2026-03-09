@@ -1,0 +1,19 @@
+{# Zola template - Blog post #}
+
+{% import "macros.html" as macros %}
+
+{% extends "base.html" %}
+
+{% block content %}
+{% set post = page %}
+<section>
+  <h1>{{ post.title }}</h1>
+  {% if post.description %}
+  <p class="subtitle">{{ post.description }}</p>
+  {% endif %}
+  {{ macros::blog_post_meta(post=post) }}
+</section>
+<section>
+  {{ post.content | safe }}
+</section>
+{% endblock content %}

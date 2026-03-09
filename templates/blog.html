@@ -1,0 +1,14 @@
+{# Zola template - Blog #}
+
+{% import "macros.html" as macros %}
+
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+  <h1>Blog</h1>
+</section>
+{% for post in section.pages %}
+{{ macros::blog_post_summary(post=post) }}
+{% endfor %}
+{% endblock content %}

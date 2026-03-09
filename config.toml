@@ -1,0 +1,30 @@
+# Zola configuration
+
+base_url = "https://laurent.pireyn.be"
+title = "LPireyn"
+description = "Laurent Pireyn's website."
+author = "Laurent Pireyn"
+default_language = "en"
+
+generate_feeds = true
+generate_sitemap = true
+generate_robots_txt = true
+
+[markdown]
+
+smart_punctuation = true
+render_emoji = false
+external_links_external = true
+
+[markdown.highlighting]
+
+light_theme = "github-light-high-contrast"
+dark_theme = "github-dark-high-contrast"
+error_on_missing_language = true
+
+[[taxonomies]]
+
+name = "tags"
+render = true
+
+[extra]

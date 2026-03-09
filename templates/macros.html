@@ -1,0 +1,49 @@
+{# Tera macros (alphabetically) #}
+
+{% macro blog_post_meta(post) %}
+{{ self::page_tags_meta(page=post) }}
+<p class="meta">
+  Published on {{ self::time(value=post.date, format="%B %-d, %Y") }};
+  reading time: {{ post.reading_time }} min
+</p>
+{% endmacro %}
+
+{% macro blog_post_summary(post) %}
+<section>
+  <h2><a href="{{ post.path | safe }}">{{ post.title }}</a></h2>
+  {% if post.description %}
+  <p class="subtitle">{{ post.description }}</p>
+  {% endif %}
+  {{ self::blog_post_meta(post=post) }}
+  {% if post.summary %}
+  <blockquote>{{ post.summary | safe }}</blockquote>
+  {% endif %}
+</section>
+{% endmacro %}
+
+{% macro page_tags_meta(page) %}
+{% if page.taxonomies and page.taxonomies.tags %}
+{% set tags = page.taxonomies.tags %}
+{% if tags | length > 0 %}
+<p class="meta tags">
+  Tagged with
+  {% for tag in tags %}
+  <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>
+  {% endfor %}
+</p>
+{% endif %}
+{% endif %}
+{% endmacro %}
+
+{% macro time(value, format="%F") -%}
+<time datetime="{{ value | date(format="%F") }}">{{ value | date(format=format) }}</time>
+{%- endmacro %}
+
+{# Since blocks don't support parameters, this macro to determines the title from the model #}
+{% macro title() -%}
+{%- if page %}
+{{- page.title -}}
+{% elif section %}
+{{- section.title -}}
+{% endif -%}
+{%- endmacro %}
