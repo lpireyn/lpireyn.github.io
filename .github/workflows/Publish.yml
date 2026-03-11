@@ -21,14 +21,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout website sources
         uses: actions/checkout@v4
-      - name: Build
+      - name: Build website
         uses: zolacti/on@build
-      - name: Upload pages artifact
+      - name: Upload website as pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: public
-      - name: Deploy pages
-        id: deployment
+      - name: Deploy website on pages
         uses: actions/deploy-pages@v4
