@@ -4,7 +4,7 @@
 {{ self::page_tags_meta(page=post) }}
 <p class="meta">
   Published on {{ self::time(value=post.date, format="%B %-d, %Y") }};
-  reading time: {{ post.reading_time }} min
+  reading time: {{ post.reading_time }} minute{{ post.reading_time | pluralize }}
 </p>
 {% endmacro %}
 
