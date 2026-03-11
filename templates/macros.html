@@ -1,11 +1,11 @@
 {# Tera macros (alphabetically) #}
 
 {% macro blog_post_meta(post) %}
-{{ self::page_tags_meta(page=post) }}
 <p class="meta">
-  Published on {{ self::time(value=post.date, format="%B %-d, %Y") }};
-  reading time: {{ post.reading_time }} minute{{ post.reading_time | pluralize }}
+  Published on {{ self::time(value=post.date, format="%B %-d, %Y") }}.
+  Reading time: {{ post.reading_time }} minute{{ post.reading_time | pluralize }}.
 </p>
+{{ self::page_tags_meta(page=post) }}
 {% endmacro %}
 
 {% macro blog_post_summary(post) %}
@@ -18,6 +18,7 @@
   {% if post.summary %}
   <blockquote>{{ post.summary | safe }}</blockquote>
   {% endif %}
+  <p><a href="{{ post.path | safe }}">Read the post</a></p>
 </section>
 {% endmacro %}
 
@@ -28,8 +29,9 @@
 <p class="meta tags">
   Tagged with
   {% for tag in tags %}
+  {%- if not loop.first %}{% if not loop.last %}, {% else %} and {% endif %}{% endif -%}
   <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">#{{ tag }}</a>
-  {% endfor %}
+  {%- endfor %}.
 </p>
 {% endif %}
 {% endif %}
