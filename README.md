@@ -7,6 +7,10 @@
 - [Tufte CSS](https://edwardtufte.github.io/tufte-css/) ([GitHub](https://github.com/edwardtufte/tufte-css))
 - [Giallo themes preview](https://textmate-grammars-themes.netlify.app/)
 
+## Deployment
+
+This website is currently deployed on GitHub Pages.
+
 ## License
 
 This website is licensed under the [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/).
