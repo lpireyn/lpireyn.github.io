@@ -1,0 +1,13 @@
+{# Zola shortcode - Block quote for Tufte CSS #}
+
+<blockquote>
+  {# The `body` variable is not rendered, so we explicitly do it here #}
+  {{ body | markdown | safe }}
+  {% if author %}
+  <footer>
+    {% if url %}<a href="{{ url | safe }}">{% endif %}
+    {{ author }}
+    {% if url %}</a>{% endif %}
+  </footer>
+  {% endif %}
+</blockquote>
